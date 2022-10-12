@@ -1,0 +1,170 @@
+﻿@model ProductViewModel
+
+@{
+    var title = "Create Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Upsert";
+}
+
+<br />
+<form method="post" enctype="multipart/form-data">
+    <div class="row p-3 border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (Model.Product.Id != Guid.Empty)
+        {
+            title = "Edit Product";
+            <input type="hidden" asp-for="@Model.Product.Id" />
+        }
+        <div class="col-12 border-bottom">
+            <h2 class="text-primary">@title</h2>
+        </div>
+        <div class="col-8 pt-4">
+            <div class="row form-control">
+                <div class="col-4">
+                    <label asp-for="@Model.Product.Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="@Model.Product.Name" class="form-control" />
+                    <span asp-validation-for="@Model.Product.Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-control">
+                <div class="col-4">
+                    <label asp-for="@Model.Product.Isbn"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="@Model.Product.Isbn" class="form-control" />
+                    <span asp-validation-for="@Model.Product.Isbn" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-control">
+                <div class="col-4">
+                    <label asp-for="@Model.Product.Description"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="@Model.Product.Description" class="form-control"></textarea>
+                    <span asp-validation-for="@Model.Product.Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-control">
+                <div class="col-4">
+                    <label asp-for="@Model.Product.ListPrice"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="@Model.Product.ListPrice" class="form-control" />
+                    <span asp-validation-for="@Model.Product.ListPrice" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-control">
+                <div class="col-4">
+                    <label asp-for="@Model.Product.Price"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="@Model.Product.Price" class="form-control" />
+                    <span asp-validation-for="@Model.Product.Price" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-control">
+                <div class="col-4">
+                    <label asp-for="@Model.Product.PriceFor50"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="@Model.Product.PriceFor50" class="form-control" />
+                    <span asp-validation-for="@Model.Product.PriceFor50" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-control">
+                <div class="col-4">
+                    <label asp-for="@Model.Product.PriceFor100"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="@Model.Product.PriceFor100" class="form-control" />
+                    <span asp-validation-for="@Model.Product.PriceFor100" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-control">
+                <div class="col-4">
+                    <label asp-for="@Model.Product.Author"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="@Model.Product.Author" class="form-control" />
+                    <span asp-validation-for="@Model.Product.Author" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-control">
+                <div class="col-4">
+                    <label asp-for="@Model.Product.Category"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Product.CategoryId, Model.Categories, "Select a Category", new { @class = "form-control" })
+                    <span asp-validation-for="@Model.Product.CategoryId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-control">
+                <div class="col-4">
+                    <label asp-for="@Model.Product.Cover"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Product.CoverId, Model.Covers, "Select a Cover", new { @class = "form-control" })
+                    <span asp-validation-for="@Model.Product.CoverId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-control">
+                <div class="col-4">
+                    <label asp-for="@Model.Product.ImageUrl"></label>
+                </div>
+                <div class="col-8">
+                    <input type="file" name="images" id="images" class="form-control" />
+                    <span asp-validation-for="@Model.Product.CoverId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-control">
+                <div class="col-8 offset-4">
+                    @if (Model.Product.Id != Guid.Empty)
+                    {
+                        <partial name="_EditAndBackToList" model="Model.Product.Id" />
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" onclick="return validateImages()" class="btn btn-primary form-control"><i class="fas fa-plus"> Create</i></button>
+                            </div>
+                            <div class="col">
+                                <a asp-action="Index" class="btn btn-success form-control"><i class="fas fa-arrow-left"> Back To List</i></a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        @if (Model.Product.Id != Guid.Empty)
+        {
+            <div class="col-3 offset-1 pt-4">
+                <img src="@Model.Product.ImageUrl" alt="book image" style="width:100%; border-radius: 5px; border:1px solid #bbb9b9" />
+            </div>
+        }
+
+    </div>
+</form>
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script src="https://cdn.tiny.cloud/1/dzlnuaxk4l611e8ykvb2ymbunkdundagir5hlku0431ipegn/tinymce/5/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'lists',
+            menubar: 'file edit format'
+        });
+
+        function validateImages() {
+            if (document.getElementById("images").value === "") {
+                alert("Error", "Please select an image", "error");
+                return false;
+            }
+            return true;
+        }
+    </script>
+}

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@foreach (var item in Model)
+{
+    <div class="row pb-3 bg-white">
+        <div class="col-lg-3 col-md-6">
+            <div class="row p-2">
+                <div class="col-12 p-1" style="border: 1px solid #008cba; border-radius: 5px;">
+                    <div class="card" style="border: 0">
+                        <img src="@item.ImageUrl" alt="Book Image" class="card-img-top rounded" />
+                        <div class="px-1">
+                            <p class="card-title h5">
+                                <b style="color:#2c3e50">@item.Name</b>
+                            </p>
+                            <p class="card-title text-primary">by <b>@item.Author</b></p>
+                        </div>
+                        <div class="px-5">
+                            <p>List Price: <del><b class="">@item.Price.ToString("C")</b></del></p>
+                        </div>
+                        <div class="px-5">
+                            <p style="color: maroon">As low as: <strikeout><b class="">@item.PriceFor100.ToString("C")</b></strikeout></p>
+                        </div>
+                    </div>
+                    <div>
+                        <a asp-action="Details" class="btn btn-primary form-control" asp-route-id="@item.Id">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
