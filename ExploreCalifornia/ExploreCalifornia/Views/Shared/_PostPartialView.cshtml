@@ -1,0 +1,13 @@
+﻿@inject ExploreCalifornia.Models.FormattingService format
+@model ExploreCalifornia.Models.BlogPost
+
+<article class="blog-post">
+    <h1>@Html.ActionLink(Model.Title, "Post", "Blog", new { year = Model.Posted.Year, month = Model.Posted.Month, key = Model.Key })</h1>
+
+    <div class="details">
+        Posted on <span>@format.AsReadableDate(Model.Posted)</span> by <span>@Model.Author</span>
+    </div>
+    <div class="comments-container">
+        @Model.Body
+    </div>
+</article>
