@@ -1,0 +1,9 @@
+﻿OBSERVER PATTERN
+================
+Defines one to many dependencies between objects
+so that when one object (observable) changes its state
+all of its dependencies (observers) are notified and updated.
+
+Observable is being observed by observers. 
+Observable send notifications when its state changes.
+Observers need to subscribe in order to be notified.

@@ -1,0 +1,11 @@
+﻿@page "/brands/create"
+@attribute [Authorize]
+
+<HeadingComponent Title="Create Brand"/>
+<BrandComponent ButtonText="Create" 
+                OnValidSubmit="CreateBrand"
+                Brand="_brand"/>
+
+@code {
+
+}

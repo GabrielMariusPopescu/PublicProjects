@@ -1,0 +1,4 @@
+﻿DECORATOR PATTERN
+=================
+Attaches additional responsibilities to an object dynamically.
+Decorators provides a flexible alternative to subclassing for extended functionality.

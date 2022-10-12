@@ -1,0 +1,11 @@
+﻿@page "/customers/create"
+@attribute [Authorize]
+
+<HeadingComponent Title="Create Customer"/>
+<CustomerComponent ButtonText="Create"
+                   OnValidSubmit = "@CreateCustomer" 
+                   Customer = "_customer" />
+
+@code {
+
+}

@@ -1,0 +1,11 @@
+﻿@page "/models/edit/{Id:guid}"
+@attribute [Authorize]
+
+<HeadingComponent Title="Edit Model"/>
+<ModelComponent ButtonText="Update" 
+                OnValidSubmit="EditModel" 
+                Model="_model" />
+
+@code {
+
+}

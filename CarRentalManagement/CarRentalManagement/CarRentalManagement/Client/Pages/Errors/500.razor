@@ -1,0 +1,6 @@
+﻿@page "/500"
+@inject HttpInterceptorService _httpInterceptorService
+
+<h1 class="text-danger">
+    @_httpInterceptorService.ErrorMessage
+</h1>

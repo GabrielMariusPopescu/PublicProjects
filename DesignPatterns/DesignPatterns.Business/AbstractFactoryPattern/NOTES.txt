@@ -1,0 +1,11 @@
+﻿FACTORY PATTERN
+===============
+There are three version of this pattern
+1. Simple Factory - not so much a pattern
+2. Factory Method - see Factory Pattern folder
+3. Abstract Factory
+
+3. Abstract Factory
+   ----------------
+   provides an interface for creating families of related or dependent objects 
+   without specifying their concrete classes

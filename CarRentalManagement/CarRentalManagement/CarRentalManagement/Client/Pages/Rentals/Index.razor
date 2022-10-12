@@ -1,0 +1,57 @@
+﻿@page "/rentals"
+@attribute [Authorize]
+
+<HeadingComponent Title="Rentals"/>
+<a href="/rentals/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create New Rental
+</a>
+
+@if (Rentals == null || !Rentals.Any())
+{
+    <div class="alert alert-info">Loading Rentals...</div>
+}
+else
+{
+    <table class="table" id="rentalsTable">
+        <thead>
+            <tr>
+                <th>Customer First Name</th>
+                <th>Customer Last Name</th>
+                <th>Customer Email Address</th>
+                <th>Customer Phone Number</th>
+                <th>Rental Date</th>
+                <th>Rental Days</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rental in Rentals)
+            {
+                <tr>
+                    <td>@rental.Customer.FirstName</td>
+                    <td>@rental.Customer.LastName</td>
+                    <td>@rental.Customer.EmailAddress</td>
+                    <td>@rental.Customer.ContactNumber</td>
+                    <td>@rental.DateCreated.ToString("d")</td>
+                    <td>@(rental.DateIn!=null ? (rental.DateIn.Value-rental.DateOut).TotalDays.ToString("####") : "To Be Determined")</td>
+                    <td>
+                        <a href="/rentals/view/@rental.Id" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                        <a href="/rentals/edit/@rental.Id" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(() => Delete(rental.Id))">
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    
+}

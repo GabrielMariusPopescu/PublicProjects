@@ -1,0 +1,7 @@
+﻿STRATEGY PATTERN
+================
+Defines a family of strategies (Reverser or Sorted order / Upper and Lower case display)
+encapsulate each one (methods within the concrete strategies)
+and makes them interchangeable (they're of type ISort / IDisplay)
+and thus strategy lets the algorithm vary independently from
+the client (Context class) that use them.

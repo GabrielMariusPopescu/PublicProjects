@@ -1,0 +1,11 @@
+﻿@page "/models/create"
+@attribute [Authorize]
+
+<HeadingComponent Title="Create Model"/>
+<ModelComponent ButtonText="Create" 
+                OnValidSubmit="CreateModel"
+                Model="_model"/>
+
+@code {
+
+}

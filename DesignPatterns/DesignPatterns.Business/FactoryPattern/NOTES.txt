@@ -1,0 +1,12 @@
+﻿FACTORY PATTERN
+===============
+There are three version of this pattern
+1. Simple Factory - not so much a pattern
+2. Factory Method
+3. Abstract Factory
+
+2. Factory Method
+   --------------
+   defines a contract for creating an object,
+   but lets subclasses to decide with class to instantiate.
+   Factory method lets a class deffer instantiation to subclasses.

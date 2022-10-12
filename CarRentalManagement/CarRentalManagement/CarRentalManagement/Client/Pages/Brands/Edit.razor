@@ -1,0 +1,11 @@
+﻿@page "/brands/edit/{Id:guid}"
+@attribute [Authorize]
+
+<HeadingComponent Title="Edit Brand"/>
+<BrandComponent ButtonText="Update" 
+                OnValidSubmit="EditBrand" 
+                Brand="_brand" />
+
+@code {
+   
+}

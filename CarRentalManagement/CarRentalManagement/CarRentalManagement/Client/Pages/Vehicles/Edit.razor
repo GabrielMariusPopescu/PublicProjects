@@ -1,0 +1,11 @@
+﻿@page "/vehicles/edit/{Id:guid}"
+@attribute [Authorize]
+
+<HeadingComponent Title="Edit Vehicle"/>
+<VehicleComponent ButtonText="Update" 
+                  OnValidSubmit="@EditVehicle" 
+                  Vehicle="_vehicle"/>
+
+@code {
+
+}

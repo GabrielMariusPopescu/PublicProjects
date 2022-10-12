@@ -1,0 +1,4 @@
+﻿FACEDE PATTERN
+==============
+Provides an unified interface to a set of interfaces in a subsystem.
+It defines a higher level interface that males the subsystem easier to use.

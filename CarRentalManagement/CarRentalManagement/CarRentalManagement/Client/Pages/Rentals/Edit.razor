@@ -1,0 +1,11 @@
+﻿@page "/rentals/edit/{Id:guid}"
+@attribute [Authorize]
+
+<HeadingComponent Title="Edit Rental"/>
+<RentalComponent ButtonText="Update" 
+                 OnValidSubmit="@EditRental" 
+                 Rental="_rental"/>
+
+@code {
+    
+}

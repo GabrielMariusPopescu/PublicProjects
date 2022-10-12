@@ -1,0 +1,10 @@
+﻿@page "/rentals/create"
+@attribute [Authorize]
+
+<HeadingComponent Title="Create Rental"/>
+<RentalComponent ButtonText="Create" 
+                 OnValidSubmit="@CreateRental" 
+                 Rental="_rental"/>
+
+@code {
+}

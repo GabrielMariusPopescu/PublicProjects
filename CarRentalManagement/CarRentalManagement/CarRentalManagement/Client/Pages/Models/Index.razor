@@ -1,0 +1,47 @@
+﻿@page "/models"
+@attribute [Authorize]
+
+<HeadingComponent Title="Models"/>
+<a href="/models/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create New Model
+</a>
+
+@if (Models == null || !Models.Any())
+{
+    <div class="alert alert-info">Loading Car Models...</div>
+}
+else
+{
+    <table class="table" id="modelTable">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var model in Models)
+        {
+            <tr>
+                <td>@model.Name</td>
+                <td>
+                    <a href="/models/view/@model.Id" class="btn btn-primary">
+                        <span class="oi oi-book"></span>
+                    </a>
+                    <a href="/models/edit/@model.Id" class="btn btn-warning">
+                        <span class="oi oi-pencil"></span>
+                    </a>
+                    <button class="btn btn-danger" @onclick="@(() => Delete(model.Id))">
+                        <span class="oi oi-delete"></span>
+                    </button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+   
+}

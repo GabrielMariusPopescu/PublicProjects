@@ -1,0 +1,53 @@
+﻿@page "/customers"
+@attribute [Authorize]
+
+<HeadingComponent Title="Customers"/>
+<a href="/customers/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create New Customer
+</a>
+
+@if (Customers == null || !Customers.Any())
+{
+    <div class="alert alert-info">Loading Customers...</div>
+}
+else
+{
+    <table class="table" id="customerTable">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Address</th>
+            <th>Contact Number</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var customer in Customers)
+        {
+            <tr>
+                <td>@customer.LastName</td>
+                <td>@customer.FirstName</td>
+                <td>@customer.EmailAddress</td>
+                <td>@customer.ContactNumber</td>
+                <td>
+                    <a href="/customers/view/@customer.Id" class="btn btn-primary">
+                        <span class="oi oi-book"></span>
+                    </a>
+                    <a href="/customers/edit/@customer.Id" class="btn btn-warning">
+                        <span class="oi oi-pencil"></span>
+                    </a>
+                    <button class="btn btn-danger" @onclick="@(() => Delete(customer.Id))">
+                        <span class="oi oi-delete"></span>
+                    </button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+
+}

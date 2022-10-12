@@ -1,0 +1,11 @@
+﻿@page "/vehicles/create"
+@attribute [Authorize]
+
+<HeadingComponent Title="Create Vehicle"/>
+<VehicleComponent ButtonText="Create Vehicle" 
+                  OnValidSubmit="@CreateVehicle" 
+                  Vehicle="_vehicle"/>
+
+@code {
+
+}

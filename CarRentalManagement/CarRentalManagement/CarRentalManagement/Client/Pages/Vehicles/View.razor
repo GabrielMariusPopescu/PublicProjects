@@ -1,0 +1,10 @@
+﻿@page "/vehicles/view/{Id:guid}"
+@inject HttpClient _httpClient
+@attribute [Authorize]
+
+<HeadingComponent Title="View Vehicle"/>
+<VehicleComponent Vehicle="_vehicle" Disabled="true"/>
+
+@code {
+
+}

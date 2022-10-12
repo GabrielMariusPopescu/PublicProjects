@@ -1,0 +1,9 @@
+﻿@page "/rentals/view/{Id:guid}"
+@attribute [Authorize]
+
+<HeadingComponent Title="View Rental"/>
+<RentalComponent Rental="_rental" Disabled="true"/>
+
+@code {
+    
+}

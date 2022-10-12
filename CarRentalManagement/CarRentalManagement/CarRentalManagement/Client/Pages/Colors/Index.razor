@@ -1,0 +1,47 @@
+﻿@page "/colors"
+@attribute [Authorize]
+
+<HeadingComponent Title="Colors"/>
+<a href="/colors/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create New Color
+</a>
+
+@if (Colors == null || !Colors.Any())
+{
+    <div class="alert alert-info">Loading Car Colors...</div>
+}
+else
+{
+    <table class="table" id="colorTable">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var color in Colors)
+        {
+            <tr>
+                <td>@color.Name</td>
+                <td>
+                    <a href="/colors/view/@color.Id" class="btn btn-primary">
+                        <span class="oi oi-book"></span>
+                    </a>
+                    <a href="/colors/edit/@color.Id" class="btn btn-warning">
+                        <span class="oi oi-pencil"></span>
+                    </a>
+                    <button class="btn btn-danger" @onclick="@(() => Delete(color.Id))">
+                        <span class="oi oi-delete"></span>
+                    </button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+   
+}

@@ -1,0 +1,11 @@
+﻿@page "/colors/edit/{Id:guid}"
+@attribute [Authorize]
+
+<HeadingComponent Title="Edit Color"/>
+<ColorComponent ButtonText="Update" 
+                OnValidSubmit="EditColor" 
+                Color="_color" />
+
+@code {
+
+}

@@ -1,0 +1,19 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/CarRentalManagement/CarRentalManagement/Client/bin/Debug/net5.0
+/CarRentalManagement/CarRentalManagement/Client/obj
+/CarRentalManagement/CarRentalManagement/Server/bin/Debug/net5.0
+/CarRentalManagement/CarRentalManagement/Server/obj
+/CarRentalManagement/CarRentalManagement/Shared/bin/Debug/net5.0
+/CarRentalManagement/CarRentalManagement/Shared/obj
+/CarRentalManagement/.vs/CarRentalManagement/v16
+/CarRentalManagement/.vs/CarRentalManagement/config
+/CarRentalManagement/.vs/CarRentalManagement/DesignTimeBuild
+/CarRentalManagement/.vs/CarRentalManagement/v17
+/CarRentalManagement/CarRentalManagement/Server/CarRentalManagement.Server.csproj.user
+/CarRentalManagement/CarRentalManagement/Client/bin/Debug/net6.0
+/CarRentalManagement/CarRentalManagement/Server/bin/Debug/net6.0
+/CarRentalManagement/CarRentalManagement/Shared/bin/Debug/net6.0
+/CarRentalManagement/.vs

@@ -1,0 +1,4 @@
+﻿TEMPLATE METHOD PATTERN
+=======================
+Defines the skeleton of an algorithm 
+deferring some steps to subclasses.

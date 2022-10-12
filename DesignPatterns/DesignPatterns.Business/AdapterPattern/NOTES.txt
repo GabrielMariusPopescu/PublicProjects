@@ -1,0 +1,4 @@
+﻿ADAPTER PATTERN
+===============
+Converts the interface / contract into another interface / contract the clients expect
+Adapter lets interfaces / contracts work together that couldn't otherwise because of the incompatible interfaces / contracts

@@ -1,0 +1,11 @@
+﻿@page "/customers/edit/{Id:guid}"
+@attribute [Authorize]
+
+<HeadingComponent Title="Edit Customer"/>
+<CustomerComponent ButtonText="Update"
+                   OnValidSubmit = "@EditCustomer" 
+                   Customer = "_customer" />
+
+@code {
+
+}

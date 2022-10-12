@@ -1,0 +1,8 @@
+﻿PROXY PATTERN
+=============
+Provides a surrogate or placeholder for
+another object to control access to it
+There can be:
+1. Remote proxy controls access to external code, libraries
+2. Virtual proxy controls access to resource that is expensive to create
+3. Protection proxy controls access to resource based on particular rights

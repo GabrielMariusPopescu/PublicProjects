@@ -1,0 +1,9 @@
+﻿@page "/customers/view/{Id:guid}"
+@attribute [Authorize]
+
+<HeadingComponent Title="View Customer"/>
+<CustomerComponent Customer = "_customer" Disabled="true" />
+
+@code {
+
+}
