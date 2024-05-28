@@ -1,9 +1,11 @@
-﻿using DesignPatterns.Business.DecoratorPattern.Beverage;
+﻿using System.Diagnostics.CodeAnalysis;
+using DesignPatterns.Business.DecoratorPattern.Beverage;
 using DesignPatterns.Business.DecoratorPattern.Decorator;
 using NUnit.Framework;
 
 namespace DesignPatterns.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class DecoratorPatternTests
     {
@@ -15,8 +17,8 @@ namespace DesignPatterns.Tests
             var description = drink.GetDescription();
             var cost = drink.GetCost();
 
-            Assert.AreEqual("espresso", description);
-            Assert.AreEqual(3.50, cost);
+            Assert.Equals("espresso", description);
+            Assert.Equals(3.50, cost);
         }
 
         [Test]
@@ -27,8 +29,8 @@ namespace DesignPatterns.Tests
             var description = drink.GetDescription();
             var cost = drink.GetCost();
 
-            Assert.AreEqual("decaf", description);
-            Assert.AreEqual(2.00, cost);
+            Assert.Equals("decaf", description);
+            Assert.Equals(2.00, cost);
         }
 
         [Test]
@@ -40,8 +42,8 @@ namespace DesignPatterns.Tests
             var description = flavour.GetDescription();
             var cost = flavour.GetCost();
 
-            Assert.AreEqual("espresso with caramel flavour", description);
-            Assert.AreEqual(5.50, cost);
+            Assert.Equals("espresso with caramel flavour", description);
+            Assert.Equals(5.50, cost);
         }
 
         [Test]
@@ -53,8 +55,8 @@ namespace DesignPatterns.Tests
             var description = flavour.GetDescription();
             var cost = flavour.GetCost();
 
-            Assert.AreEqual("espresso with soy flavour", description);
-            Assert.AreEqual(7.50, cost);
+            Assert.Equals("espresso with soy flavour", description);
+            Assert.Equals(7.50, cost);
         }
 
         [Test]
@@ -66,8 +68,8 @@ namespace DesignPatterns.Tests
             var description = flavour.GetDescription();
             var cost = flavour.GetCost();
 
-            Assert.AreEqual("decaf with caramel flavour", description);
-            Assert.AreEqual(4.00, cost);
+            Assert.Equals("decaf with caramel flavour", description);
+            Assert.Equals(4.00, cost);
         }
 
         [Test]
@@ -79,8 +81,8 @@ namespace DesignPatterns.Tests
             var description = flavour.GetDescription();
             var cost = flavour.GetCost();
 
-            Assert.AreEqual("decaf with soy flavour", description);
-            Assert.AreEqual(6.00, cost);
+            Assert.Equals("decaf with soy flavour", description);
+            Assert.Equals(6.00, cost);
         }
 
         [Test]
@@ -92,8 +94,8 @@ namespace DesignPatterns.Tests
             var description = flavour.GetDescription();
             var cost = flavour.GetCost();
 
-            Assert.AreEqual("espresso with soy flavour with caramel flavour", description);
-            Assert.AreEqual(9.50, cost);
+            Assert.Equals("espresso with soy flavour with caramel flavour", description);
+            Assert.Equals(9.50, cost);
         }
 
         [Test]
@@ -103,10 +105,10 @@ namespace DesignPatterns.Tests
             Flavour flavour = new Soy(new Caramel(drink));
 
             var description = flavour.GetDescription();
-            Assert.AreEqual("decaf with caramel flavour with soy flavour", description);
+            Assert.Equals("decaf with caramel flavour with soy flavour", description);
 
             var cost = flavour.GetCost();
-            Assert.AreEqual(8.00, cost);
+            Assert.Equals(8.00, cost);
         }
     }
 }

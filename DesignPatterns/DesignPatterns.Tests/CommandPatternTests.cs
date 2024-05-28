@@ -1,4 +1,5 @@
-﻿using DesignPatterns.Business.CommandPattern;
+﻿using System.Diagnostics.CodeAnalysis;
+using DesignPatterns.Business.CommandPattern;
 using DesignPatterns.Business.CommandPattern.Contracts;
 using DesignPatterns.Business.CommandPattern.Models;
 using DesignPatterns.Business.CommandPattern.Services;
@@ -6,6 +7,7 @@ using NUnit.Framework;
 
 namespace DesignPatterns.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class CommandPatternTests
     {
@@ -25,11 +27,11 @@ namespace DesignPatterns.Tests
         {
             invoker.ClickOn();
 
-            Assert.AreEqual("Light is turned on.", light.State);
+            Assert.Equals("Light is turned on.", light.State);
 
             invoker.UndoClickOn();
 
-            Assert.AreEqual("Light is turned off.", light.State);
+            Assert.Equals("Light is turned off.", light.State);
         }
 
         [Test]
@@ -37,11 +39,11 @@ namespace DesignPatterns.Tests
         {
             invoker.ClickOff();
 
-            Assert.AreEqual("Light is turned off.", light.State);
+            Assert.Equals("Light is turned off.", light.State);
 
             invoker.UndoClickOff();
 
-            Assert.AreEqual("Light is turned on.", light.State);
+            Assert.Equals("Light is turned on.", light.State);
         }
 
         [Test]
@@ -49,11 +51,11 @@ namespace DesignPatterns.Tests
         {
             invoker.ClickDim();
 
-            Assert.AreEqual("Light is dimmed.", light.State);
+            Assert.Equals("Light is dimmed.", light.State);
 
             invoker.UndoClickDim();
 
-            Assert.AreEqual("Light is brighter.", light.State);
+            Assert.Equals("Light is brighter.", light.State);
         }
 
         [Test]
@@ -61,11 +63,11 @@ namespace DesignPatterns.Tests
         {
             invoker.ClickBright();
 
-            Assert.AreEqual("Light is brighter.", light.State);
+            Assert.Equals("Light is brighter.", light.State);
 
             invoker.UndoClickBright();
 
-            Assert.AreEqual("Light is dimmed.", light.State);
+            Assert.Equals("Light is dimmed.", light.State);
         }
 
         //

@@ -1,11 +1,13 @@
-﻿using DesignPatterns.Business.StrategyPattern;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using DesignPatterns.Business.StrategyPattern;
 using DesignPatterns.Business.StrategyPattern.Contracts;
 using DesignPatterns.Business.StrategyPattern.Services;
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace DesignPatterns.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class StrategyPatternTests
     {
@@ -27,8 +29,8 @@ namespace DesignPatterns.Tests
             var context = new Context(reversedSort, uppercaseDisplay);
             var sortResult = context.Sort(letters);
             var displayResult = context.Display(letters);
-            Assert.AreEqual("d,c,b,a", string.Join(",", sortResult));
-            Assert.AreEqual("D,C,B,A", string.Join(",", displayResult));
+            Assert.Equals("d,c,b,a", string.Join(",", sortResult));
+            Assert.Equals("D,C,B,A", string.Join(",", displayResult));
         }
 
         [Test]
@@ -37,8 +39,8 @@ namespace DesignPatterns.Tests
             var context = new Context(sortedSort, lowercaseDisplay);
             var sortResult = context.Sort(letters);
             var displayResult = context.Display(letters);
-            Assert.AreEqual("a,b,c,d", string.Join(",", sortResult));
-            Assert.AreEqual("a,b,c,d", string.Join(",", displayResult));
+            Assert.Equals("a,b,c,d", string.Join(",", sortResult));
+            Assert.Equals("a,b,c,d", string.Join(",", displayResult));
         }
 
         [Test]
@@ -47,8 +49,8 @@ namespace DesignPatterns.Tests
             var context = new Context(reversedSort, lowercaseDisplay);
             var sortResult = context.Sort(letters);
             var displayResult = context.Display(letters);
-            Assert.AreEqual("d,c,b,a", string.Join(",", sortResult));
-            Assert.AreEqual("d,c,b,a", string.Join(",", displayResult));
+            Assert.Equals("d,c,b,a", string.Join(",", sortResult));
+            Assert.Equals("d,c,b,a", string.Join(",", displayResult));
         }
 
         [Test]
@@ -57,8 +59,8 @@ namespace DesignPatterns.Tests
             var context = new Context(sortedSort, uppercaseDisplay);
             var sortResult = context.Sort(letters);
             var displayResult = context.Display(letters);
-            Assert.AreEqual("a,b,c,d", string.Join(",", sortResult));
-            Assert.AreEqual("A,B,C,D", string.Join(",", displayResult));
+            Assert.Equals("a,b,c,d", string.Join(",", sortResult));
+            Assert.Equals("A,B,C,D", string.Join(",", displayResult));
         }
 
         //

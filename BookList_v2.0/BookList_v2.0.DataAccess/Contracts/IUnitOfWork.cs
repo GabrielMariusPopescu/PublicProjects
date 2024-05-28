@@ -1,20 +1,19 @@
 ﻿using System;
 
-namespace BookList_v2._0.DataAccess.Contracts
+namespace BookList_v2._0.DataAccess.Contracts;
+
+public interface IUnitOfWork : IDisposable
 {
-    public interface IUnitOfWork : IDisposable
-    {
-        ICategoryRepository CategoryRepository { get; }
+    ICategoryRepository CategoryRepository { get; }
 
-        ICoverRepository CoverRepository { get; }
+    ICoverRepository CoverRepository { get; }
 
-        IProductRepository ProductRepository { get; }
+    IProductRepository ProductRepository { get; }
 
-        ICompanyRepository CompanyRepository { get; }
+    ICompanyRepository CompanyRepository { get; }
 
-        IUserRepository UserRepository { get; }
+    IUserRepository UserRepository { get; }
 
 
-        void Save();
-    }
+    void Save();
 }
