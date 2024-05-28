@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using DesignPatterns.Business.ObserverPattern.Contracts;
 using DesignPatterns.Business.ObserverPattern.Services;
 using NUnit.Framework;
 
 namespace DesignPatterns.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class ObserverPatternTests
     {
@@ -24,20 +26,20 @@ namespace DesignPatterns.Tests
             subscribers.Add(australianSubscriber);
             weather.Subscribe(australianSubscriber);
 
-            Assert.AreEqual("Australian subscriber", australianSubscriber.Name);
-            Assert.AreEqual("Australian subscriber subscribed!", weather.Message);
+            Assert.Equals("Australian subscriber", australianSubscriber.Name);
+            Assert.Equals("Australian subscriber subscribed!", weather.Message);
 
             subscribers.Add(romanianSubscriber);
             weather.Subscribe(romanianSubscriber);
 
-            Assert.AreEqual("Romanian subscriber", romanianSubscriber.Name);
-            Assert.AreEqual("Romanian subscriber subscribed!", weather.Message);
+            Assert.Equals("Romanian subscriber", romanianSubscriber.Name);
+            Assert.Equals("Romanian subscriber subscribed!", weather.Message);
 
             subscribers.Add(unitedKingdomSubscriber);
             weather.Subscribe(unitedKingdomSubscriber);
 
-            Assert.AreEqual("United Kingdom subscriber", unitedKingdomSubscriber.Name);
-            Assert.AreEqual("United Kingdom subscriber subscribed!", weather.Message);
+            Assert.Equals("United Kingdom subscriber", unitedKingdomSubscriber.Name);
+            Assert.Equals("United Kingdom subscriber subscribed!", weather.Message);
         }
 
         [Test]
@@ -46,20 +48,20 @@ namespace DesignPatterns.Tests
             subscribers.Add(australianSubscriber);
             weather.Unsubscribe(australianSubscriber);
 
-            Assert.AreEqual("Australian subscriber", australianSubscriber.Name);
-            Assert.AreEqual("Australian subscriber unsubscribed!", weather.Message);
+            Assert.Equals("Australian subscriber", australianSubscriber.Name);
+            Assert.Equals("Australian subscriber unsubscribed!", weather.Message);
 
             subscribers.Add(romanianSubscriber);
             weather.Unsubscribe(romanianSubscriber);
 
-            Assert.AreEqual("Romanian subscriber", romanianSubscriber.Name);
-            Assert.AreEqual("Romanian subscriber unsubscribed!", weather.Message);
+            Assert.Equals("Romanian subscriber", romanianSubscriber.Name);
+            Assert.Equals("Romanian subscriber unsubscribed!", weather.Message);
 
             subscribers.Add(unitedKingdomSubscriber);
             weather.Unsubscribe(unitedKingdomSubscriber);
 
-            Assert.AreEqual("United Kingdom subscriber", unitedKingdomSubscriber.Name);
-            Assert.AreEqual("United Kingdom subscriber unsubscribed!", weather.Message);
+            Assert.Equals("United Kingdom subscriber", unitedKingdomSubscriber.Name);
+            Assert.Equals("United Kingdom subscriber unsubscribed!", weather.Message);
         }
 
         [Test]
@@ -69,7 +71,7 @@ namespace DesignPatterns.Tests
             weather.Degree = 40;
             weather.Notify();
 
-            Assert.AreEqual("It's normal out here!", australianSubscriber.Message);
+            Assert.Equals("It's normal out here!", australianSubscriber.Message);
         }
 
         [Test]
@@ -79,7 +81,7 @@ namespace DesignPatterns.Tests
             weather.Degree = -10;
             weather.Notify();
 
-            Assert.AreEqual("It's freezing!", romanianSubscriber.Message);
+            Assert.Equals("It's freezing!", romanianSubscriber.Message);
         }
 
         [Test]
@@ -89,7 +91,7 @@ namespace DesignPatterns.Tests
             weather.Degree = 250;
             weather.Notify();
 
-            Assert.AreEqual("It's roasting!", unitedKingdomSubscriber.Message);
+            Assert.Equals("It's roasting!", unitedKingdomSubscriber.Message);
         }
 
         [Test]
@@ -100,8 +102,8 @@ namespace DesignPatterns.Tests
             weather.Degree = 40;
             weather.Notify();
 
-            Assert.AreEqual("It's roasting!", unitedKingdomSubscriber.Message);
-            Assert.AreEqual("It's normal out here!", australianSubscriber.Message);
+            Assert.Equals("It's roasting!", unitedKingdomSubscriber.Message);
+            Assert.Equals("It's normal out here!", australianSubscriber.Message);
         }
 
         //

@@ -1,10 +1,12 @@
-﻿using DesignPatterns.Business.BridgePattern.Contracts;
+﻿using System.Diagnostics.CodeAnalysis;
+using DesignPatterns.Business.BridgePattern.Contracts;
 using DesignPatterns.Business.BridgePattern.Implementation;
 using DesignPatterns.Business.BridgePattern.Models;
 using NUnit.Framework;
 
 namespace DesignPatterns.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class BridgePatternTests
     {
@@ -21,7 +23,7 @@ namespace DesignPatterns.Tests
             resource = new ArtistResource(artist);
             view = new LongView(resource);
             var actual = view.Show();
-            Assert.AreEqual($"This is the long view representation of the {resource.Snippet()}", actual);
+            Assert.Equals($"This is the long view representation of the {resource.Snippet()}", actual);
         }
 
         [Test]
@@ -30,7 +32,7 @@ namespace DesignPatterns.Tests
             resource = new ArtistResource(artist);
             view = new ShortView(resource);
             var actual = view.Show();
-            Assert.AreEqual($"This is the short view representation of the {resource.Snippet()}", actual);
+            Assert.Equals($"This is the short view representation of the {resource.Snippet()}", actual);
         }
 
         [Test]
@@ -39,7 +41,7 @@ namespace DesignPatterns.Tests
             resource = new BookResource(book);
             view = new LongView(resource);
             var actual = view.Show();
-            Assert.AreEqual($"This is the long view representation of the {resource.Snippet()}", actual);
+            Assert.Equals($"This is the long view representation of the {resource.Snippet()}", actual);
         }
 
         [Test]
@@ -48,7 +50,7 @@ namespace DesignPatterns.Tests
             resource = new BookResource(book);
             view = new ShortView(resource);
             var actual = view.Show();
-            Assert.AreEqual($"This is the short view representation of the {resource.Snippet()}", actual);
+            Assert.Equals($"This is the short view representation of the {resource.Snippet()}", actual);
         }
 
         //

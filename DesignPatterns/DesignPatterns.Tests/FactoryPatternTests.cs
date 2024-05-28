@@ -1,10 +1,12 @@
-﻿using DesignPatterns.Business.FactoryPattern.Contracts;
+﻿using System.Diagnostics.CodeAnalysis;
+using DesignPatterns.Business.FactoryPattern.Contracts;
 using DesignPatterns.Business.FactoryPattern.Models;
 using DesignPatterns.Business.FactoryPattern.Services;
 using NUnit.Framework;
 
 namespace DesignPatterns.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class FactoryPatternTests
     {
@@ -15,8 +17,8 @@ namespace DesignPatterns.Tests
             var transport = logistics.CreateTransport();
             transport.Deliver();
 
-            Assert.IsInstanceOf<Truck>(transport);
-            Assert.AreEqual("Deliver by road!", transport.DeliverMethod);
+            Assert.That(transport, Is.InstanceOf<Truck>());
+            Assert.Equals("Deliver by road!", transport.DeliverMethod);
         }
 
         [Test]
@@ -26,8 +28,8 @@ namespace DesignPatterns.Tests
             var transport = logistics.CreateTransport();
             transport.Deliver();
 
-            Assert.IsInstanceOf<Ship>(transport);
-            Assert.AreEqual("Deliver by sea!", transport.DeliverMethod);
+            Assert.That(transport, Is.TypeOf<Ship>());
+            Assert.Equals("Deliver by sea!", transport.DeliverMethod);
         }
     }
 }

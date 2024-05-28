@@ -1,9 +1,11 @@
-﻿using DesignPatterns.Business.AbstractFactoryPattern.Contracts;
+﻿using System.Diagnostics.CodeAnalysis;
+using DesignPatterns.Business.AbstractFactoryPattern.Contracts;
 using DesignPatterns.Business.AbstractFactoryPattern.Services;
 using NUnit.Framework;
 
 namespace DesignPatterns.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class AbstractFactoryPatternTests
     {
@@ -20,8 +22,8 @@ namespace DesignPatterns.Tests
             var modernFurniture = chairFactory.CreateModernFurniture();
             var victorianFurniture = chairFactory.CreateVictorianFurniture();
 
-            Assert.AreEqual("This is a victorian chair.", victorianFurniture.GetName());
-            Assert.AreEqual("This is a victorian chair. collaborating with the (This is a modern chair.)", victorianFurniture.GetCollaboratorName(modernFurniture));
+            Assert.Equals("This is a victorian chair.", victorianFurniture.GetName());
+            Assert.Equals("This is a victorian chair. collaborating with the (This is a modern chair.)", victorianFurniture.GetCollaboratorName(modernFurniture));
         }
 
         [Test]
@@ -30,8 +32,8 @@ namespace DesignPatterns.Tests
             var modernFurniture = coffeeTableFactory.CreateModernFurniture();
             var victorianFurniture = coffeeTableFactory.CreateVictorianFurniture();
 
-            Assert.AreEqual("This is a victorian coffee table.", victorianFurniture.GetName());
-            Assert.AreEqual("This is a victorian coffee table. collaborating with the (This is a modern coffee table.)", victorianFurniture.GetCollaboratorName(modernFurniture));
+            Assert.Equals("This is a victorian coffee table.", victorianFurniture.GetName());
+            Assert.Equals("This is a victorian coffee table. collaborating with the (This is a modern coffee table.)", victorianFurniture.GetCollaboratorName(modernFurniture));
         }
 
         [Test]
@@ -40,8 +42,8 @@ namespace DesignPatterns.Tests
             var chair = chairFactory.CreateModernFurniture();
             var coffeeTable = coffeeTableFactory.CreateModernFurniture();
 
-            Assert.AreEqual("This is a modern chair.", chair.GetName());
-            Assert.AreEqual("This is a modern coffee table.", coffeeTable.GetName());
+            Assert.Equals("This is a modern chair.", chair.GetName());
+            Assert.Equals("This is a modern coffee table.", coffeeTable.GetName());
         }
 
         [Test]
@@ -50,8 +52,8 @@ namespace DesignPatterns.Tests
             var chair = chairFactory.CreateVictorianFurniture();
             var coffeeTable = coffeeTableFactory.CreateVictorianFurniture();
 
-            Assert.AreEqual("This is a victorian chair.", chair.GetName());
-            Assert.AreEqual("This is a victorian coffee table.", coffeeTable.GetName());
+            Assert.Equals("This is a victorian chair.", chair.GetName());
+            Assert.Equals("This is a victorian coffee table.", coffeeTable.GetName());
         }
 
         //
