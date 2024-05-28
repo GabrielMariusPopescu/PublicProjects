@@ -1,0 +1,35 @@
+// Global using directives
+
+global using System;
+global using System.Collections.Generic;
+global using System.ComponentModel.DataAnnotations;
+global using System.Diagnostics;
+global using System.IO;
+global using System.Linq;
+global using System.Security.Claims;
+global using System.Text;
+global using System.Text.Encodings.Web;
+global using System.Text.Json;
+global using System.Threading.Tasks;
+global using BookList_v2._0.DataAccess.Contracts;
+global using BookList_v2._0.DataAccess.Data;
+global using BookList_v2._0.DataAccess.Implementation;
+global using BookList_v2._0.Helpers;
+global using BookList_v2._0.Models;
+global using BookList_v2._0.Models.ViewModels;
+global using BookList_v2._0.Services;
+global using Microsoft.AspNetCore.Authentication;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.AspNetCore.Hosting;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Identity.UI.Services;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Mvc.RazorPages;
+global using Microsoft.AspNetCore.Mvc.Rendering;
+global using Microsoft.AspNetCore.WebUtilities;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Hosting;
+global using Microsoft.Extensions.Logging;

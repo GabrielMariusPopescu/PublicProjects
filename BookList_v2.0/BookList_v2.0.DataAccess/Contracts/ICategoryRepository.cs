@@ -1,9 +1,8 @@
 ﻿using BookList_v2._0.Models;
 
-namespace BookList_v2._0.DataAccess.Contracts
+namespace BookList_v2._0.DataAccess.Contracts;
+
+public interface ICategoryRepository : IRepository<Category>
 {
-    public interface ICategoryRepository : IRepository<Category>
-    {
-        void Update(Category category);
-    }
+    void Update(Category category);
 }

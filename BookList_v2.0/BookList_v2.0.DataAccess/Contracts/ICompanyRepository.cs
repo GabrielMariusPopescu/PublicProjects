@@ -1,9 +1,8 @@
 ﻿using BookList_v2._0.Models;
 
-namespace BookList_v2._0.DataAccess.Contracts
+namespace BookList_v2._0.DataAccess.Contracts;
+
+public interface ICompanyRepository : IRepository<Company>
 {
-    public interface ICompanyRepository : IRepository<Company>
-    {
-        void Update(Company company);
-    }
+    void Update(Company company);
 }

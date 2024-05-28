@@ -1,18 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+namespace BookList_v2._0.Areas.Identity.Pages.Account;
 
-namespace BookList_v2._0.Areas.Identity.Pages.Account
+[AllowAnonymous]
+public class ResetPasswordConfirmationModel : PageModel
 {
-    [AllowAnonymous]
-    public class ResetPasswordConfirmationModel : PageModel
+    public void OnGet()
     {
-        public void OnGet()
-        {
 
-        }
     }
 }
